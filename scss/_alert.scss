@@ -1,0 +1,36 @@
+$background_default: grey !default;
+
+//Mixin and placeholder
+%alert {
+    text-align: center;
+    border-style: solid;
+    border-radius: 5px 5px 5px 5px;
+    border-width: thin;
+}
+
+@mixin alert_boite($width, $bc:$background_default) {
+    width: $width;
+    background-color: $bc;
+    padding: 20px 0px 20px 0px;
+}
+
+//Pre created class for alerts
+.alert-succes {
+    @extend %alert;
+    @include alert_boite(300px, lightgreen);
+}
+
+.alert-info {
+    @extend %alert;
+    @include alert_boite(300px, cadetblue);
+}
+
+.alert-carefull {
+    @extend %alert;
+    @include alert_boite(300px, yellow);
+}
+
+.alert-danger {
+    @extend %alert;
+    @include alert_boite(300px, indianred);
+}

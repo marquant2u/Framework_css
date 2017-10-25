@@ -1,0 +1,141 @@
+//pre created class for typos. (no mixing)
+body {
+    @extend %police;
+}
+
+p {
+    @extend %police;
+    padding-bottom: 5px;
+}
+
+%policeTitre {
+    font-family: $police;
+    font-style: $PoliceStyleTitre;
+}
+
+%police {
+    font-family: $police;
+    font-style: $PoliceStyle;
+}
+
+.small,
+small {
+    font-size: 0.5em;
+    color: grey;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 60px;
+    @extend %policeTitre;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 50px;
+    @extend %policeTitre;
+
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 40px;
+    @extend %policeTitre;
+}
+
+h4 {
+    font-weight: 300;
+    font-size: 30px;
+    @extend %policeTitre;
+}
+
+h5 {
+    font-weight: 200;
+    font-size: 20px;
+    @extend %policeTitre;
+}
+
+h6 {
+    font-weight: 100;
+    font-size: 15px;
+    @extend %policeTitre;
+}
+
+mark {
+    background-color: green;
+}
+
+del {
+    color: red;
+}
+
+ins {
+    text-decoration-style: dashed;
+    font-style: italic;
+}
+
+u {
+    @extend ins;
+}
+
+strong {
+    font-weight: 900;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.maj {
+    text-transform: uppercase;
+}
+
+.min {
+    text-transform: lowercase;
+}
+
+ul li {
+    list-style: circle;
+    font-style: oblique;
+}
+
+.li_square {
+    list-style: square;
+}
+
+.li_none {
+    list-style: none;
+}
+
+blockquote {
+    font-style: italic;
+    font-weight: 600;
+}
+
+code {
+    font-family: Monaco, Consolas, sans-serif;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre-wrap;
+    background: #faf8f0;
+}
+
+pre {
+    color: dodgerblue;
+}
+
+kbd {
+    font-style: italic;
+}

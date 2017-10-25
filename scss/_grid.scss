@@ -1,0 +1,84 @@
+$mr: 1%!default;
+$wt: 100%!default;
+$width_conteneur: 80%!default;
+
+$numcols_12: 13;
+$numcols_16: 17;
+$numcols_24: 25;
+
+
+@mixin grid-col($number, $total, $margin:$mr, $widthtotal:$wt) {
+    width: (($number / $total) * $widthtotal) - (2 * $margin);
+    margin: $margin;
+    box-sizing: border-box;
+}
+
+
+@mixin grid-offset($number, $total, $widthtotal:$wt) {
+    margin-left: ($number / $total) * $widthtotal;
+}
+
+.grid {
+    width: $width_conteneur;
+    margin: auto;
+
+}
+
+.row{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+//Génerer grid pour 12 col :
+
+@for $cols from 1 to $numcols_12 {
+    .col-12-#{$cols} {
+        @include grid-col($cols, $numcols_12);
+        border-style: solid;
+        border-width: thin;
+    }
+}
+
+@for $cols from  1 to $numcols_12 {
+    .offset-12-#{$cols} {
+        @include grid-offset($cols, $numcols_12);
+        border-style: solid;
+        border-width: thin;
+    }
+}
+
+//Génerer grid pour 16 col :
+
+@for $cols from 1 to $numcols_16 {
+    .col-16-#{$cols} {
+        @include grid-col($cols, $numcols_16);
+        border-style: solid;
+        border-width: thin;
+    }
+}
+
+@for $cols from 1 to $numcols_16 {
+    .offset-16-#{$cols} {
+        @include grid-offset($cols, $numcols_16);
+        border-style: solid;
+        border-width: thin;
+    }
+}
+
+//Génerer grid pour 24 col :
+
+@for $cols from 1 to $numcols_24 {
+    .col-24-#{$cols} {
+        @include grid-col($cols, $numcols_24);
+        border-style: solid;
+        border-width: thin;
+    }
+}
+
+@for $cols from 1 to $numcols_24 {
+    .offset-24-#{$cols} {
+        @include grid-offset($cols, $numcols_24);
+        border-style: solid;
+        border-width: thin;
+    }
+}

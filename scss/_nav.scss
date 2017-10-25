@@ -1,0 +1,57 @@
+@import "variable";
+
+$ColorLi: lightgreen !default;
+$ColorLiDisabled: coral !default;
+$ColorLiActived: dimgray !default;
+$ColorLiHover: aquamarine !default;
+$break: 700px !default;
+
+@mixin nav($c1:$ColorLi, $c2:$ColorLiHover, $break:$break) {
+    width: 100%;
+    & > ul {
+        padding: 0px;
+        width: 95%;
+        display: flex;
+        flex-wrap: nowrap;
+        & > li {
+            padding: 15px;
+            list-style-type: none;
+            background-color: $c1;
+            text-decoration: none;
+            text-align: center;
+            flex-grow: 1;
+            flex-basis: 1;
+            width: 15.5%;
+            &:hover {
+                background-color: $c2;
+            }
+
+            & > a {
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+    @media screen and (max-width: $break) {
+        & > ul {
+            width: 95%;
+            display: flex;
+            flex-wrap: wrap;
+            & > li {
+                width: 95%;
+            }
+        }
+    }
+}
+
+nav {
+    @include nav(lightgrey, darkgray, 700px);
+}
+
+.li-disabled {
+    background-color: $ColorLiDisabled;
+}
+
+.li-active {
+    background-color: $ColorLiActived;
+}

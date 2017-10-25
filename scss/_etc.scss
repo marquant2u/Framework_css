@@ -1,0 +1,100 @@
+//Mixin pour les ligne d'un tableau 
+@mixin td($border-style, $padding, $word-spacing, $border-witdh) {
+    border-style: $border-style;
+    padding: $padding;
+    word-spacing: $word-spacing;
+    border-width: $border-witdh;
+}
+
+//Mixin pour les titres d'un tableau
+@mixin th($border-style, $padding, $word-spacing, $border-witdh, $color, $background-color) {
+    border-style: $border-style;
+    padding: $padding;
+    word-spacing: $word-spacing;
+    border-width: $border-witdh;
+    color: $color;
+    background-color: $background-color;
+}
+
+//Mixin pour les cases d'un tableau
+@mixin tr($back1, $back2, $hover1, $hover2) {
+    background-color: $back1;
+    &:hover {
+        background-color: $hover1;
+    }
+    &:nth-child(2n) {
+        background-color: $back2;
+        &:hover {
+            background-color: $hover2;
+        }
+    }
+
+}
+
+//Genere des mixins de bases pour les balises
+td {
+    @include td(solid, 10px, 0, thin);
+}
+
+th {
+    @include th(solid, 10px, 0, thin, dodgerblue, lightgray);
+}
+
+tr {
+    @include tr(white, lightgreen, lightgrey, greenyellow);
+}
+
+table {
+    border-spacing: 0;
+}
+
+//Mixin pour le fil d'ariane :
+@mixin ariane($con, $paddingli) {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    & > li {
+        text-decoration: none;
+        list-style-type: none;
+        padding-left: $paddingli;
+        &:after {
+            content: $con;
+        }
+    }
+}
+
+//Generation du fil d'ariane de base :
+.breadcrumb {
+    @include ariane(">", 5px);
+}
+
+//Mixins pour la pagination:
+@mixin pagination($padding1, $padding2, $color, $coloractived, $colorhover) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    & a {
+        color: black;
+        float: left;
+        padding: $padding1 $padding2;
+        text-decoration: none;
+        &:hover {
+            background-color: $colorhover;
+        }
+    }
+
+    & > li {
+        list-style-type: none;
+        & > a.actived {
+            background-color: $coloractived;
+            color: $color;
+        }
+
+    }
+}
+
+
+//Generation de la pagination
+.pagination {
+    @include pagination(15px, 15px, black, limegreen, #ddd)
+}

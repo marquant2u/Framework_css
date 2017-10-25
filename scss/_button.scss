@@ -1,0 +1,98 @@
+//Default var for mixin button
+$button_width: 120px !default;
+$button_height: 50px !default;
+$button_fz: 15px !default;
+$button_ff: "Helvetica Neue" !default;
+$button_color: black !default;
+$button_bc: lightgray !default;
+$button_bs: solid !default;
+$button_br: 25px 5px 50px 5px !default;
+$button_bw: thin !default;
+
+//Mixins for button
+@mixin button($font-size, $color, $background-color, $border-style, $border-width, $padding, $margin-left, $text-align, $width, $height, $border-radius, $bc-hover, $cursor) {
+    font-size: $font-size;
+    border-style: $background-color;
+    border-width: $border-width;
+    background-color: $background-color;
+    color: $color;
+    padding: $padding;
+    margin-left: $margin-left;
+    text-align: $text-align;
+    width: $width;
+    height: $height;
+    border-radius: $border-radius;
+    &:hover {
+        background-color: $bc-hover;
+        cursor: $cursor;
+    }
+}
+
+
+//Mixin simplifié
+@mixin button_struc($width:$button_width, $height:$button_height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin button_font($fontsize:$button_fz, $fontfamily:$button_ff, $color:$button_color) {
+    font-size: $fontsize;
+    font-family: $fontfamily;
+    color: $color;
+}
+
+@mixin button_border($backgroundcolor:$button_bc, $borderstyle:$button_bs, $borderradius:$button_br, $borderwidth:$button_bw) {
+    background-color: $backgroundcolor;
+    border-style: $borderstyle;
+    border-radius: $borderradius;
+    border-width: $borderwidth;
+}
+
+//Pre-created class whit mixin
+.btn {
+    @include button(15px, cornflowerblue, lightgray, solid, thin, 5px, 10px, center, 250px, 50px, 15px, darkgrey, pointer);
+}
+
+.btn-small {
+    @include button(15px, cornflowerblue, lightgray, solid, thin, 5px, 10px, center, 100px, 50px, 15px, darkgrey, pointer);
+}
+
+.btn-large {
+    @include button(15px, cornflowerblue, lightgray, solid, thin, 5px, 10px, center, 350px, 50px, 15px, darkgrey, pointer);
+}
+
+.btn-yellow {
+    @include button(15px, cornflowerblue, yellow, solid, thin, 5px, 10px, center, 100px, 50px, 15px, lightyellow, pointer);
+}
+
+.btn-red {
+    @include button(15px, cornflowerblue, lightcoral, solid, thin, 5px, 10px, center, 100px, 50px, 15px, coral, pointer);
+}
+
+.btn-green {
+    @include button(15px, cornflowerblue, lightgreen, solid, thin, 5px, 10px, center, 100px, 50px, 15px, darkseagreen, pointer);
+}
+
+.btn-extralarge {
+    @include button(15px, cornflowerblue, lightgray, solid, thin, 5px, 10px, center, 100%, 50px, 15px, lightgrey, pointer);
+}
+
+.btn-flat {
+    @include button(15px, cornflowerblue, lightgray, none, thin, 5px, 10px, center, 100px, 50px, 0px, darkgrey, pointer);
+}
+
+
+.btn-fancy {
+
+    @include button(15px, cornflowerblue, lightgray, solid, thin, 5px, 10px, center, 250px, 50px, 15px, darkgrey, pointer);
+    background: linear-gradient(to right, red, orange);
+    color: black;
+    box-shadow: 4px 4px 4px 4px;
+}
+
+
+.button_nomr {
+    @include button_struc();
+    @include button_font();
+    @include button_border();
+}
